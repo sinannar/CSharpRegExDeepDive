@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
 
 //Regex regex = new Regex(@"\b\w{5}\b");
 
@@ -21,3 +22,32 @@ Console.WriteLine("find_anynumberberofafollowedbyb.IsMatch(aaaaabbbbb): " + find
 Console.WriteLine("find_anynumberberofafollowedbyb.IsMatch(aaaaab): " + find_anynumberberofafollowedbyb.IsMatch("aaaaab"));
 Console.WriteLine("find_anynumberberofafollowedbyb.IsMatch(abbbb): " + find_anynumberberofafollowedbyb.IsMatch("abbbb"));
 Console.WriteLine();
+
+
+// parameter colored as regex
+static void FunctionTakesRegexArgument([StringSyntax(StringSyntaxAttribute.Regex)] string s) { }
+FunctionTakesRegexArgument(@"\b\w{5}\b");
+
+
+// parameter colored as json
+static void FunctionTakesJsonArgument([StringSyntax(StringSyntaxAttribute.Json)] string s) { }
+FunctionTakesJsonArgument("""
+    {
+        "key1": 3,
+        "key2": 12,
+        "key3": {
+            "key1": 3,
+            "key2": 12
+        },
+        "key4": [
+            {    
+                "key1": 3,
+                "key2": 12
+            },
+            {    
+                "key1": 3,
+                "key2": 12
+            }
+        ]
+    }
+    """);
