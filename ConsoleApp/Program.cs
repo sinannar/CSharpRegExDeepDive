@@ -3,9 +3,12 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 
+Console.WriteLine(Email.Matcher().IsMatch("sinan.nar@gmail.com"));
+Console.WriteLine(Email.Matcher().IsMatch("sinan.nar@gmail......com"));
+
 static partial class Email
 {
-    /// GENERATED COMMENT
+    /// GE
     /// <remarks>
     /// Pattern:<br/>
     /// <code>^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$</code><br/>
