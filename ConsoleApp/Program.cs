@@ -1,19 +1,25 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
-string input = "Hello, abc is coming to work today";
+Regex r = new Regex("abc");
+string input = "Hello,  abc! def how are you?";
+Console.WriteLine(r.IsMatch(input));
+Console.WriteLine(input.Contains("abc"));
+Console.WriteLine(input.IndexOf("abc") >= 0);
 
-Regex regex1 = new Regex(@"abc|def"); // checking if "abc" or "def" exist in context
-Console.WriteLine(regex1.IsMatch(input));
-Console.WriteLine(regex1.Match(input));
+//string input = "Hello, abc is coming to work today";
 
-Regex regex2 = new Regex(@"^abc|def"); // checking if "abc" only at the beginning, or "def" exist in context
-Console.WriteLine(regex2.IsMatch(input));
-Console.WriteLine(regex2.Match(input));
+//Regex regex1 = new Regex(@"abc|def"); // checking if "abc" or "def" exist in context
+//Console.WriteLine(regex1.IsMatch(input));
+//Console.WriteLine(regex1.Match(input));
 
-Regex regex3 = new Regex(@"^(abc|def)"); // checking if "abc" or "def" exist only at the beginning in context
-Console.WriteLine(regex2.IsMatch(input));
-Console.WriteLine(regex2.Match(input));
+//Regex regex2 = new Regex(@"^abc|def"); // checking if "abc" only at the beginning, or "def" exist in context
+//Console.WriteLine(regex2.IsMatch(input));
+//Console.WriteLine(regex2.Match(input));
+
+//Regex regex3 = new Regex(@"^(abc|def)"); // checking if "abc" or "def" exist only at the beginning in context
+//Console.WriteLine(regex2.IsMatch(input));
+//Console.WriteLine(regex2.Match(input));
 
 //Regex find_abc = new Regex(@"abc");
 //Console.WriteLine("find_abc.IsMatch(abcccc): " + find_abc.IsMatch("abcccc"));
