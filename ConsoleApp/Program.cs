@@ -3,11 +3,15 @@ using System.Text.RegularExpressions;
 
 
 Example.Demo().Count("abc");
+
 static partial class Example
 {
-   
-    [GeneratedRegex("a")]
+
+    [GeneratedRegex("a*[ab]")]
     public static partial Regex Demo();
+
+    [GeneratedRegex("a*b")]
+    public static partial Regex Demo2();
 }
 
 
@@ -81,3 +85,8 @@ static partial class Example
 //        ]
 //    }
 //    """);
+
+
+//var regex = new Regex("a*c");
+//string input = "Hello, aaaaac is coming to work today";
+//Console.WriteLine(regex.IsMatch(input));
