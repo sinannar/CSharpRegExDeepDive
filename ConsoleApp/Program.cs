@@ -5,14 +5,10 @@ using System.Text.RegularExpressions;
 Example.Demo().Count("abc");
 static partial class Example
 {
+    [GeneratedRegex("a*b")]
     public static partial Regex Demo();
 }
 
-static partial class Example
-{
-    public static partial Regex Demo() => null!;
-
-}
 
 //Regex r = new Regex("abc");
 //string input = "Hello,  abc! def how are you?";
