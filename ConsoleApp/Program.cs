@@ -5,8 +5,59 @@ using System.Text.RegularExpressions;
 Example.Demo().Count("abc");
 static partial class Example
 {
-    [GeneratedRegex("a*b")]
+    /*
+        // SPIT OUT CODE
+        private bool TryFindNextPossibleStartingPosition(ReadOnlySpan<char> inputSpan)
+        {
+            int pos = base.runtextpos;
+                    
+            // Any possible match is at least 3 characters.
+            if (pos <= inputSpan.Length - 3)
+            {
+                // The pattern has the literal "abc" at the beginning of the pattern. Find the next occurrence.
+                // If it can't be found, there's no match.
+                int i = inputSpan.Slice(pos).IndexOf("abc");
+                if (i >= 0)
+                {
+                    base.runtextpos = pos + i;
+                    return true;
+                }
+            }
+                    
+            // No match found.
+            base.runtextpos = inputSpan.Length;
+            return false;
+        }
+     */
+    [GeneratedRegex("abc")]
     public static partial Regex Demo();
+
+    /*
+     // SPIT OUT CODE
+        private bool TryFindNextPossibleStartingPosition(ReadOnlySpan<char> inputSpan)
+        {
+            int pos = base.runtextpos;
+                    
+            // Empty matches aren't possible.
+            if ((uint)pos < (uint)inputSpan.Length)
+            {
+                // The pattern begins with a character in the set [ac].
+                // Find the next occurrence. If it can't be found, there's no match.
+                int i = inputSpan.Slice(pos).IndexOfAny('a', 'c');
+                if (i >= 0)
+                {
+                    base.runtextpos = pos + i;
+                    return true;
+                }
+            }
+                    
+            // No match found.
+            base.runtextpos = inputSpan.Length;
+            return false;
+        }
+     */
+    [GeneratedRegex("a*c")]
+    public static partial Regex Demo2();
 }
 
 
