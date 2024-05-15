@@ -3,22 +3,41 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 
-Stopwatch sw = new();
-
-for (int i = 1; i<28;++i)
+static partial class Email
 {
-    //Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$", RegexOptions.Compiled);
-    Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}\1$", RegexOptions.NonBacktracking);
-
-    string input = string.Concat(Enumerable.Repeat("11", i)) + "1";
-    sw.Restart();
-    r.IsMatch(input);
-    sw.Stop();
-    Console.WriteLine($"{i}: {sw.Elapsed}");
+    /// GENERATED COMMENT
+    /// <remarks>
+    /// Pattern:<br/>
+    /// <code>^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$</code><br/>
+    /// Explanation:<br/>
+    /// <code>
+    /// ○ Match if at the beginning of the string.<br/>
+    /// ○ Match a character in the set [-.0-9A-Z_a-z] atomically at least once.<br/>
+    /// ○ Match '@'.<br/>
+    /// ○ Match a character in the set [-.0-9A-Za-z] greedily at least once.<br/>
+    /// ○ Match '.'.<br/>
+    /// ○ Match a character in the set [A-Za-z] atomically at least 2 and at most 4 times.<br/>
+    /// ○ Match if at the end of the string or if before an ending newline.<br/>
+    /// </code>
+    /// </remarks>
+    [GeneratedRegex(@"^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$")]
+    public static partial Regex Matcher();
 }
 
-//Example.Demo().Count("abc");
+//Stopwatch sw = new();
+//for (int i = 1; i<28;++i)
+//{
+//    Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$", RegexOptions.Compiled);
+//    //Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}\1$", RegexOptions.NonBacktracking);
 
+//    string input = string.Concat(Enumerable.Repeat("11", i)) + "1";
+//    sw.Restart();
+//    r.IsMatch(input);
+//    sw.Stop();
+//    Console.WriteLine($"{i}: {sw.Elapsed}");
+//}
+
+//Example.Demo().Count("abc");
 //static partial class Example
 //{
 
