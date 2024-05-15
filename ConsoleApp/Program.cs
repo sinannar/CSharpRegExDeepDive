@@ -5,11 +5,12 @@ using System.Text.RegularExpressions;
 
 Stopwatch sw = new();
 
-for (int i = 1; i<40;++i)
+for (int i = 1; i<28;++i)
 {
-    Regex r = new Regex($@"(\w\d|\d\w){{{i}}}");
+    //Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$", RegexOptions.Compiled);
+    Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$");
 
-    string input = string.Concat(Enumerable.Repeat("11", i));
+    string input = string.Concat(Enumerable.Repeat("11", i)) + "1";
     sw.Restart();
     r.IsMatch(input);
     sw.Stop();
