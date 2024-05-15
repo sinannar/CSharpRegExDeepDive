@@ -1,11 +1,26 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
-Regex r = new Regex("abc", RegexOptions.Compiled);
-string input = "Hello,  abc! def how are you?";
-Console.WriteLine(r.IsMatch(input));
-Console.WriteLine(input.Contains("abc"));
-Console.WriteLine(input.IndexOf("abc") >= 0);
+
+Example.Demo().Count("abc");
+static partial class Example
+{
+    public static partial Regex Demo();
+}
+
+static partial class Example
+{
+    public static partial Regex Demo() => null!;
+
+}
+
+//Regex r = new Regex("abc");
+//string input = "Hello,  abc! def how are you?";
+//Console.WriteLine(r.IsMatch(input));
+//Console.WriteLine(input.Contains("abc"));
+//Console.WriteLine(input.IndexOf("abc") >= 0);
+
+
 
 //string input = "Hello, abc is coming to work today";
 
