@@ -1,18 +1,32 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 
-Example.Demo().Count("abc");
+Stopwatch sw = new();
 
-static partial class Example
+for (int i = 1; i<40;++i)
 {
+    Regex r = new Regex($@"(\w\d|\d\w){{{i}}}");
 
-    [GeneratedRegex("a*[ab]")]
-    public static partial Regex Demo();
-
-    [GeneratedRegex("a*b")]
-    public static partial Regex Demo2();
+    string input = string.Concat(Enumerable.Repeat("11", i));
+    sw.Restart();
+    r.IsMatch(input);
+    sw.Stop();
+    Console.WriteLine($"{i}: {sw.Elapsed}");
 }
+
+//Example.Demo().Count("abc");
+
+//static partial class Example
+//{
+
+//    [GeneratedRegex("a*[ab]")]
+//    public static partial Regex Demo();
+
+//    [GeneratedRegex("a*b")]
+//    public static partial Regex Demo2();
+//}
 
 
 //Regex r = new Regex("abc");
