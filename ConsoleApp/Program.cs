@@ -8,7 +8,7 @@ Stopwatch sw = new();
 for (int i = 1; i<28;++i)
 {
     //Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$", RegexOptions.Compiled);
-    Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$", RegexOptions.NonBacktracking);
+    Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}\1$", RegexOptions.NonBacktracking);
 
     string input = string.Concat(Enumerable.Repeat("11", i)) + "1";
     sw.Restart();
