@@ -8,11 +8,19 @@ Stopwatch sw = new();
 for (int i = 1; i<28;++i)
 {
     //Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$", RegexOptions.Compiled);
-    Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$");
+    Regex r = new Regex($@"^(\w\d|\d\w){{{i}}}$", RegexOptions.None, TimeSpan.FromSeconds(2));
 
     string input = string.Concat(Enumerable.Repeat("11", i)) + "1";
     sw.Restart();
-    r.IsMatch(input);
+	try
+	{
+        r.IsMatch(input);
+
+    }
+    catch (Exception ex)
+	{
+        Console.WriteLine($"{ex.Message}");
+	}
     sw.Stop();
     Console.WriteLine($"{i}: {sw.Elapsed}");
 }
