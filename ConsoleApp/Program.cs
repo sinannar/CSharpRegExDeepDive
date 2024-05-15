@@ -5,12 +5,15 @@ string input = "Hello, abc is coming to work today";
 
 Regex regex1 = new Regex(@"abc|def"); // checking if "abc" or "def" exist in context
 Console.WriteLine(regex1.IsMatch(input));
+Console.WriteLine(regex1.Match(input));
 
 Regex regex2 = new Regex(@"^abc|def"); // checking if "abc" only at the beginning, or "def" exist in context
 Console.WriteLine(regex2.IsMatch(input));
+Console.WriteLine(regex2.Match(input));
 
 Regex regex3 = new Regex(@"^(abc|def)"); // checking if "abc" or "def" exist only at the beginning in context
 Console.WriteLine(regex2.IsMatch(input));
+Console.WriteLine(regex2.Match(input));
 
 //Regex find_abc = new Regex(@"abc");
 //Console.WriteLine("find_abc.IsMatch(abcccc): " + find_abc.IsMatch("abcccc"));
