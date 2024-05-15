@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
-Regex r = new Regex("abc", RegexOptions.IgnoreCase);
+Regex r = new Regex("abc", RegexOptions.Compiled);
 string input = "Hello,  abc! def how are you?";
 Console.WriteLine(r.IsMatch(input));
 Console.WriteLine(input.Contains("abc"));
